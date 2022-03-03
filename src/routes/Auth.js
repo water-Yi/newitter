@@ -1,5 +1,6 @@
 import React,{useState} from 'react';
 import {authService, firebaseInstance} from 'myBase';
+import './Auth.css'
 
 const Auth = () => {
 

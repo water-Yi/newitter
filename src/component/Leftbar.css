@@ -1,0 +1,55 @@
+.leftBar{
+    flex:1.5;
+    max-width: 260px;
+    height: calc(100vh - 60px);
+    background-color: rgb (255,250,250);
+    border-right:1px solid rgba(211, 211, 211, 0.5);
+    box-sizing: border-box;
+    position: sticky;
+    top:60px;
+    margin-top: 50px;
+}
+
+.icons-list{
+    list-style: none;
+    margin-top: 20px;
+    /* height: 100%; */
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.icon{
+    font-size: 20px;
+    color:rgb(38, 38, 39);
+    margin-right: 40px;
+    border-radius: 10px;
+    padding:20px;
+    margin-top:15px;
+    /* display: flex; */
+}
+
+.icon:hover{
+background-color: lightgray;
+}
+
+.icon > span{
+    font-size: 19px;
+    margin-left: 20px;
+}
+
+
+@media screen and (max-width: 768px) { 
+
+    .leftBar{
+        width:50px;
+    }
+
+    .icons-list{
+        text-align: center;
+    }
+
+    .icon >span{
+        display: none;
+    }
+}

@@ -1,0 +1,36 @@
+.nav-bar{
+    height: 40px;
+    width: 80%;
+    margin: auto;
+    display: flex;
+    background-color: white;
+    justify-content: space-between;
+    padding:10px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.logo{
+    font-size: 35px;
+    padding-left: 35px;
+}
+
+.logo > a{
+    color :rgb(0,172,238);
+}
+
+.username{
+    display: flex;
+}
+
+.userPic{
+    width:35px;
+    height:35px;
+    background-color: aquamarine;
+    margin-right: 15px;
+    border-radius: 50%;
+}
+
+

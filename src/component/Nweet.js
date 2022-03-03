@@ -1,14 +1,23 @@
 import React,{useState} from 'react'
 import {dbService, storageService} from '../myBase'
 
+import './Nweet.css'
+import { FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import { faComment } from '@fortawesome/free-solid-svg-icons'
+import { faRetweet } from '@fortawesome/free-solid-svg-icons'
+import { faHeart } from '@fortawesome/free-solid-svg-icons'
+import { faArrowUpFromBracket } from '@fortawesome/free-solid-svg-icons'
+
 const Nweet = ({nweetObj,checkId})=>{
+
+    console.log(nweetObj)
     
     const [editing, setEditing] = useState(false);
     const [newNweet, setNewNweet] = useState(nweetObj.text);
     
+    // 게시물 삭제 
     const onDeleteClick =async() =>{
         const ok = window.confirm('Are you sure delete this nweet?')
-        console.log(ok)
         if(ok){
             //delete nweet.
             await dbService.doc(`nweet/${nweetObj.id}`).delete();
@@ -58,14 +67,37 @@ const Nweet = ({nweetObj,checkId})=>{
         :
         
         <>
-        <h4>{nweetObj.nweet}</h4>
-        {nweetObj.imgFileUrl && (
+        {nweetObj.nweet && 
             
+            <div className="nweet-container">
+            <div className="top-info">
+                <div className='userPic'>
+                    Pic
+                </div>
+                <span className='userId'>{nweetObj.creatorId.substring(0,4)}</span>
+                {/* 상수로 정리 */}
+                <span className="createTime">createdAt</span>
+            </div>
+            <div className="nweet-text"> 
+            {nweetObj.nweet}    
+            {nweetObj.imgFileUrl && (
             <>
             <img src={nweetObj.imgFileUrl} width="50px" height="50px"/>
             <br></br>
             </>
         )}
+            </div>
+            <div className="interactive-bar">
+                <FontAwesomeIcon icon={faComment} />
+                <FontAwesomeIcon icon={faRetweet} />
+                <FontAwesomeIcon icon={faHeart} />
+                <FontAwesomeIcon icon={faArrowUpFromBracket} />
+            </div>
+            
+        </div>
+        }
+        
+        
         {checkId && (
         <>
         <button onClick={onDeleteClick}>Delete Nweet</button>

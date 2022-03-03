@@ -2,6 +2,11 @@ import React,{useState} from 'react';
 import {v4 as uuidv4} from 'uuid'
 import { dbService, storageService } from 'myBase';
 
+import './NweetFactory.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCamera } from '@fortawesome/free-solid-svg-icons';
+
+
 const NweetFactory = ({ userObj }) => {
 
     console.log(userObj.userId)
@@ -56,18 +61,33 @@ const NweetFactory = ({ userObj }) => {
     }
 
     return (
-        <form onSubmit={onSubmit}>
-            <input 
-            type="text" 
-            placeholder='whats on your mind?' 
-            onChange={onChange}
-            maxLength={120}
-            value={nweet}
-            />
-            
-            <input type="file" accept='image/*' onChange={onFileChange}/>
-            <input type="submit" value="Nweet"></input>
-            
+        <form onSubmit={onSubmit} className="factoryForm">
+            <div className='factoryInput_container'>
+                <input 
+                className="factory-input"
+                type="text" 
+                placeholder='whats on your mind?' 
+                onChange={onChange}
+                maxLength={120}
+                value={nweet}
+                />
+                <div className="filebox">
+                    <label for="file"><FontAwesomeIcon icon={faCamera} />
+                    <input 
+                        className="file-input"
+                        id="file"
+                        type="file" 
+                        accept='image/*' 
+                        onChange={onFileChange}/>
+                    </label>
+                
+                <input 
+                    className="factory-submit" 
+                    type="submit" 
+                    value="트윗하기">
+                </input>
+                </div>
+            </div>
             {imageFile && 
             <div>
                 <img src={imageFile} width="100px" height="100px"/>
