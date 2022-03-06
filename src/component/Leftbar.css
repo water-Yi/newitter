@@ -43,8 +43,13 @@ background-color: lightgray;
 @media screen and (max-width: 768px) { 
 
 
+    .leftBar{
+        margin-top: 60px;
+    }
+
     .icons-list{
         text-align: center;
+        
     }
 
     .icon >span{

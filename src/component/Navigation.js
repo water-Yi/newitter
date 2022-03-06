@@ -23,9 +23,9 @@ const Navigation =({userObj}) =>{
                 <div className='username'>
                     <div className='userPic'></div>
                     <a href ="/profile">{userObj.displayName}</a>
+                    <button className='logoutButton' onClick={onClickLogOut}>Log out</button>
                 </div>
-                <button onClick={onClickLogOut}>Log out</button>
-
+        
             </div>
         </nav>
     )
