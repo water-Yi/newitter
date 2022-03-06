@@ -2,6 +2,11 @@ import React,{useState} from 'react';
 import {authService, firebaseInstance} from 'myBase';
 import './Auth.css'
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTwitter } from '@fortawesome/free-brands-svg-icons';
+import { faGoogle } from '@fortawesome/free-brands-svg-icons';
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
+
 const Auth = () => {
 
     const [email, setEmail] = useState("");
@@ -56,33 +61,39 @@ const Auth = () => {
     }
 
     return(
-        <div>
-            <form onSubmit={onSubmit}>
-                <input 
-                onChange={onChange} 
-                value={email} 
-                name="email"
-                type="email" 
-                placeholder="Email" 
-                required />
-                
-                <input 
-                onChange={onChange} 
-                value={password} 
-                name="password"
-                type="password" 
-                placeholder="Password" 
-                required/>
+        <>
+        <div className='authcontainer'>
+        <FontAwesomeIcon className='authlogo' icon={faTwitter} />
+                <form onSubmit={onSubmit} className='createForm'>
+                    <input 
+                    className="createInput"
+                    onChange={onChange} 
+                    value={email} 
+                    name="email"
+                    type="email" 
+                    placeholder="Email" 
+                    required />
+                    
+                    <input
+                    className="createInput" 
+                    onChange={onChange} 
+                    value={password} 
+                    name="password"
+                    type="password" 
+                    placeholder="Password" 
+                    required/>
 
-                <input type ="submit" value={newAccount ? "Create Account" : "Login In"} />
-                {error}
-            </form>
-            <span onClick={toggleAccount}>{newAccount? "Sign In" : "Create Account"}</span>
-            <div>
-                <button onClick={onSocialClick} name="google">Continue with Google</button>
-                <button onClick={onSocialClick} name="github">Continue with Github</button>
+                    <input className='createSubmit' type ="submit" value={newAccount ? "Create Account" : "Login In"} />
+                    <span onClick={toggleAccount}>{newAccount? "Sign In" : "Create Account"}</span>
+                    {error}
+                </form>
+            
+            <div className='socialLogin'>
+                <button onClick={onSocialClick} name="google"><div className='logosoc'><FontAwesomeIcon icon={faGoogle} /> </div> Continue with Google</button>
+                <button onClick={onSocialClick} name="github"><div className='logosoc'><FontAwesomeIcon icon={faGithub} /> </div> Continue with Github</button>
             </div>
         </div>
+        </>
     )
 }
 

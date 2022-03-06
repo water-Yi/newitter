@@ -1,16 +1,4 @@
 
-/* 
-.nweetBar{
-    min-width:400px;
-    width: 800px;
-    margin-left: 250px;
-    background-color:rgb (255,250,250);
-    border:1px solid rgba(211, 211, 211, 0.5);
-    height: 100vh;
-    box-sizing: border-box;
-    
-} */
-
 .nweet-container{
     border-bottom: 1px solid rgba(211, 211, 211, 0.5);
 }

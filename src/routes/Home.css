@@ -1,13 +1,14 @@
-*{
+/* *{
     margin:0px;
     font-family: 'Roboto', sans-serif;
-}
+} */
 
 
 .container{
     display: flex;
     width:80%;
     margin: auto;
+    
 }
 
 .nweetBar{

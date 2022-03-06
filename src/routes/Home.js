@@ -1,5 +1,6 @@
 import { dbService } from 'myBase';
 import React,{useState, useEffect} from 'react';
+import Navigation from 'component/Navigation';
 import Nweet from '../component/Nweet'
 import Leftbar from 'component/Leftbar';
 import Rightbar from 'component/Rightbar';
@@ -38,14 +39,14 @@ const Home = ({userObj}) => {
     return(
         <React.Fragment>
             <div className='container'>
-            <Leftbar />
-            <div className="nweetBar">
-                    <NweetFactory userObj={userObj}/>
-                    {nweets.map((nweet)=>(
-                    <Nweet key={nweet.id} nweetObj={nweet} checkId={userObj.uid === nweet.creatorId}/>  
-                ))}
-            </div>
-            <Rightbar />
+                <Leftbar />
+                <div className="nweetBar">
+                        <NweetFactory userObj={userObj}/>
+                        {nweets.map((nweet)=>(
+                        <Nweet key={nweet.id} nweetObj={nweet} checkId={userObj.uid === nweet.creatorId}/>  
+                    ))}
+                </div>
+                <Rightbar />
             </div>
     
 

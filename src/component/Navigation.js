@@ -1,12 +1,18 @@
 import React from 'react';
-import {Link} from 'react-router-dom'
-import Profile from 'routes/Profile';
+import { useHistory } from 'react-router-dom';
+import { authService } from 'myBase';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTwitter } from '@fortawesome/free-brands-svg-icons';
 import './Navigation.css'
 
 const Navigation =({userObj}) =>{
-    console.log(userObj)
+    const history = useHistory();
+
+    const onClickLogOut = () =>{
+        authService.signOut();
+        history.push("/");   
+    }
+    
     return(
         <nav>
             <div className='nav-bar'>
@@ -18,7 +24,8 @@ const Navigation =({userObj}) =>{
                     <div className='userPic'></div>
                     <a href ="/profile">{userObj.displayName}</a>
                 </div>
-            
+                <button onClick={onClickLogOut}>Log out</button>
+
             </div>
         </nav>
     )

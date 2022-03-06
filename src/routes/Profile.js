@@ -8,10 +8,10 @@ const Profile = ({userObj,refreshUser}) =>{
 
     const [newDisplayName, setNewDisplayName] = useState(userObj.displayName);
 
-    const onClickLogOut = () =>{
-        authService.signOut();
-        history.push("/");   
-    }
+    // const onClickLogOut = () =>{
+    //     authService.signOut();
+    //     history.push("/");   
+    // }
 
     //where을 사용해서 filtering하고 내 아이디와 같은 게시물을 가져온다.
     const getMyNweets = async() =>{
@@ -54,7 +54,7 @@ const Profile = ({userObj,refreshUser}) =>{
             </input>
             <input type="submit" value="Update Profile"></input>
         </form>
-        <button onClick={onClickLogOut}>Log out</button>
+        {/* <button onClick={onClickLogOut}>Log out</button> */}
         </>
     )
 }
